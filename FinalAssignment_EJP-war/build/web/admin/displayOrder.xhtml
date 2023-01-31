@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/layouts/adminLayouts.xhtml">
+            <ui:define name="content">
+                <div class="data-table-area mg-b-15">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="sparkline13-list">
+                                    <div class="sparkline13-hd">
+                                        <div class="main-sparkline13-hd">
+                                            <h1>Orders <span class="table-project-n">Management</span></h1>
+                                        </div>
+                                    </div>
+                                    <div class="sparkline13-graph">
+                                        <div class="datatable-dashv1-list custom-datatable-overright">
+                                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Order ID</th>
+                                                        <th>Customer Name</th>
+                                                        <th>Order Date</th>
+                                                        <th>Delivery Phone</th>
+                                                        <th>Delivery Address</th>   
+                                                        <th>Note</th>
+                                                        <th>Total Amount</th>
+                                                        <th>Order Status</th>                                                     
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <ui:repeat value="#{checkoutMB.showAllOrders()}" var="itemOr" >
+                                                        <tr>                                                     
+                                                            <td><h:outputText value="#{itemOr.orderID}"/></td>
+                                                            <td><h:outputText value="#{itemOr.id.fullname}"/></td>
+                                                            <td><h:outputText value="#{itemOr.orderDate}">
+                                                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                                                </h:outputText>
+                                                            </td>
+                                                            <td><h:outputText value="#{itemOr.phoneShip}"/></td>
+                                                            <td><h:outputText value="#{itemOr.addressShip}"/></td>
+                                                            <td><h:outputText value="#{itemOr.note}"/></td>
+                                                            <td><h:outputText value="#{itemOr.totalAmount}"/></td>
+                                                            <td>
+                                                                <h:form>
+                                                                    <h:commandButton type="submit" class="btn btn-warning" value="#{itemOr.testVar}" action="#{checkoutMB.showStatus(itemOr.orderID)}"/>
+                                                                </h:form>
+                                                            </td>
+                                                        </tr>  
+                                                    </ui:repeat>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

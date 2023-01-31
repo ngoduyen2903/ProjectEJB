@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/layouts/adminLayouts.xhtml">
+            <ui:define name="content">
+                <div class="single-pro-review-area mt-t-30 mg-b-15">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="profile-info-inner">
+                                    <div class="profile-img text-center">
+                                        <img src="#{resource['/img/bg-img/user1.png']}" alt="" width="100px" height="100px"/>
+                                        <h4><h:outputText value="#{adminMB.admin.fullname}"/></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
+                                    <ul id="myTabedu1" class="tab-review-design">
+                                        <li><a href="#INFORMATION">Update Personal Information</a></li>
+                                    </ul>
+                                    <div id="myTabContent" class="tab-content custom-product-edit">
+                                        <div class="product-tab-list tab-pane fade" id="INFORMATION">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="review-content-section">
+                                                        <h:form>
+                                                            <div class="form-group">
+                                                                <h:outputLabel value="Fullname" styleClass="control-label col-sm-2" />
+                                                                <h:inputText value="#{adminMB.admin.fullname}" class="form-control"/>
+                                                            </div>
+                                                            <div class="form-group"> 
+                                                                <h:outputLabel value="Username" styleClass="control-label col-sm-2" />
+                                                                <h:inputText value="#{adminMB.admin.username}" class="form-control"/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <h:outputLabel value="Password" styleClass="control-label col-sm-2" />
+                                                                <h:inputText value="******" class="form-control"/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <h:outputLabel value="Email" styleClass="control-label col-sm-2" />
+                                                                <h:inputText value="#{adminMB.admin.email}" class="form-control"/>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <h:outputLabel value="Phone" styleClass="control-label col-sm-2" />
+                                                                <h:inputText value="#{adminMB.admin.phone}" class="form-control"/>
+                                                            </div>                                                            
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="payment-adress mg-t-15">
+                                                                        <h:commandButton style="color: white;" styleClass="btn btn-primary" value="Submit" action="#{adminMB.saveUpdate()}"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </h:form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

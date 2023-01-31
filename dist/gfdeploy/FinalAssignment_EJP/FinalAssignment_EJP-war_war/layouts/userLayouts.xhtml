@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="img/core-img/favicon.ico"/>
+        <h:outputStylesheet name="style.css" />
+    </h:head>
+    <h:body>
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-circle"></div>
+            <div class="preloader-img">
+                <img src="#{resource['img/core-img/leaf.png']}" alt=""/>
+            </div>
+        </div>
+        <header class="header-area">
+            <div class="top-header-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="top-header-content d-flex align-items-center justify-content-between">
+                                <div class="top-header-meta">
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="infodeercreative@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span>Email: StoneLotusStore@gmail.com</span></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="+1 234 122 122"><i class="fa fa-phone" aria-hidden="true"></i> <span>Call Us: +1 234 122 122</span></a>
+                                </div>
+                                <div class="top-header-meta d-flex">                                   
+                                    <c:if test="#{loginMB.user.username==null}"> 
+                                        <div class="login">
+                                            <h:link outcome="/user/login.xhtml"><i class="fa fa-user" aria-hidden="true"></i> <span>Login</span></h:link>                                       
+                                        </div>
+                                        <div class="register">
+                                            <h:link outcome="/user/register.xhtml"><i class="fa fa-user" aria-hidden="true"></i> <span>Register</span></h:link>                                       
+                                        </div>
+                                    </c:if>                                 
+                                    <div class="cart">
+                                        <h:link outcome="/user/cart.xhtml"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>Cart&emsp;&emsp;<span class="cart-quantity"></span></span></h:link>
+                                    </div> 
+                                    <c:if test="#{loginMB.user.username!=null}"> 
+                                        <div class="language-dropdown">
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle mr-30" aria-hidden="true" type="button" id="dropdownMenuButtonfa fa-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <img src="#{resource['/img/bg-img/user1.png']}" alt="" width="17px" height="12px" style="border-radius: 10px;"/>
+                                                    &nbsp;<span>My Profile</span></button>                                               
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <h:form>
+                                                        <h:commandLink value="&nbsp;&nbsp;Update Profile" action="#{userMB.showUpdateUsers(loginMB.user.username)}" class="dropdown-item fa fa-edit"/>
+                                                        <h:link outcome="/user/myorder.xhtml" value="&nbsp;&nbsp;My Order" class="dropdown-item fa fa-envelope-o"/>
+                                                        <h:commandLink type="submit" value="&nbsp;&nbsp;Logout" action="#{loginMB.logout()}" class="dropdown-item fa fa-key"/>   
+                                                        <h:commandLink type="submit" value="&nbsp;&nbsp;Change Password" action="#{loginMB.updatePassword()}" class="dropdown-item fa fa-edit"/>   
+                                                    </h:form>                                                   
+                                                </div>
+                                            </div>
+                                        </div>                                      
+                                    </c:if>                                                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="alazea-main-menu">
+                <div class="classy-nav-container breakpoint-off">
+                    <div class="container">
+                        <nav class="classy-navbar justify-content-between" id="alazeaNav">
+                            <h:link outcome="/user/index.xhtml" class="nav-brand"><img src="#{resource['img/core-img/logo.png']}" alt=""/></h:link>
+                            <div class="classy-navbar-toggler">
+                                <span class="navbarToggler"><span></span><span></span><span></span></span>
+                            </div>
+                            <div class="classy-menu">
+                                <div class="classycloseIcon">
+                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                                </div>
+                                <div class="classynav">
+                                    <ul>
+                                        <li><h:link value="Home" outcome="/user/index.xhtml"/></li>
+                                        <li><h:link value="About" outcome="/user/about.xhtml"/></li>
+                                        <li><a href="#">Pages</a>
+                                            <ul class="dropdown">
+                                                <li><h:link value="Home" outcome="/user/index.xhtml"/></li>
+                                                <li><h:link value="About" outcome="/user/about.xhtml"/></li>
+                                                <li><h:link value="Shop" outcome="/user/shop.xhtml"/>
+                                                    <ul class="dropdown">
+                                                        <li><h:link value="Shop" outcome="/user/shop.xhtml"/></li>
+                                                        <li><h:link value="Shop-details" outcome="/user/shop-details.xhtml"/></li>
+                                                        <li><h:link value="Shopping Cart" outcome="/user/cart.xhtml"/></li>
+                                                        <li><h:link value="Checkout" outcome="/user/checkout.xhtml"/></li>
+                                                    </ul>
+                                                </li>
+                                                <li><h:link value="Blog" outcome="/user/blog.xhtml"/>
+                                                    <ul class="dropdown">
+                                                        <li><h:link value="Blog" outcome="/user/blog.xhtml"/></li>
+                                                        <li><h:link value="Blog Details" outcome="/user/single-post.xhtml"/></li>
+                                                    </ul>
+                                                </li>
+                                                <li><h:link value="Contact" outcome="/user/contact.xhtml"/></li>
+                                            </ul>
+                                        </li>
+                                        <li><h:link value="Shop" outcome="/user/shop.xhtml"/></li>
+                                        <li><h:link value="Blog" outcome="/user/blog.xhtml"/></li>
+                                        <li><h:link value="Contact" outcome="/user/contact.xhtml"/></li>
+                                    </ul>
+                                    <div id="searchIcon">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                        <div class="search-form">
+                            <form action="#" method="get">
+                                <input type="search" name="search" id="search" placeholder="Type keywords &amp; press enter..."/>
+                                <button type="submit" class="d-none"></button>
+                            </form>
+                            <div class="closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div>
+            <ui:insert name="content" />
+        </div>
+        <footer class="footer-area bg-img" style="background-image: url(#{resource['img/bg-img/3.jpg']});">
+            <div class="main-footer-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="single-footer-widget">
+                                <div class="footer-logo mb-30">
+                                    <img src="#{resource['img/core-img/logo.png']}" alt=""/>
+                                </div>
+                                <p>Lorem ipsum dolor sit samet, consectetur adipiscing elit. India situs atione mantor</p>
+                                <div class="social-info">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="single-footer-widget">
+                                <div class="widget-title">
+                                    <h5>Categories</h5>
+                                </div>
+                                <nav class="widget-nav">
+                                    <ul> 
+                                        <ui:repeat value="#{categoryMB.showAllCategories()}" var="itemCate">
+                                            <li><a href="#"><h:outputText value="#{itemCate.categoryName}"/></a></li>                          
+                                        </ui:repeat>
+                                    </ul>
+                                </nav>                              
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="single-footer-widget">
+                                <div class="widget-title">
+                                    <h5>BEST SELLER</h5>
+                                </div>
+                                <div class="single-best-seller-product d-flex align-items-center">
+                                    <div class="product-thumbnail">
+                                        <a href="shop-details.html"><img src="#{resource['img/shop/senda/giva.jpg']}" alt=""/></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="shop-details.html">Sen đá Giva</a>
+                                        <p>$3</p>
+                                    </div>
+                                </div>
+                                <div class="single-best-seller-product d-flex align-items-center">
+                                    <div class="product-thumbnail">
+                                        <a href="shop-details.html"><img src="#{resource['img/shop/senda/hoahong.jpg']}" alt=""/></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="shop-details.html">Sen đá Sedum Hoa Hồng</a>
+                                        <p>$5</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="single-footer-widget">
+                                <div class="widget-title">
+                                    <h5>CONTACT</h5>
+                                </div>
+                                <div class="contact-information">
+                                    <p><span>Address:</span>&npsp;60 Mau Than Street, An Hoa, Ninh Kieu, Can Tho City</p>
+                                    <p><span>Phone:</span> +8487090621</p>
+                                    <p><span>Email:</span>&npsp;stonelotus@gmail.com</p>
+                                    <p><span>Open hours:</span> Mon - Sun: 8 AM to 9 PM</p>
+                                    <p><span>Happy hours:</span> Sat: 2 PM to 4 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="border-line"></div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="copywrite-text">
+                                <p>&copy;
+                                    Copyright &copy; 2022 <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Ngo Thi Cam Duyen</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="footer-nav">
+                                <nav>
+                                    <ul>
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Service</a></li>
+                                        <li><a href="#">Portfolio</a></li>
+                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <h:outputScript name="js/jquery/jquery-2.2.4.min.js" />
+        <h:outputScript name="js/bootstrap/popper.min.js" />
+        <h:outputScript name="js/bootstrap/bootstrap.min.js" />
+        <h:outputScript name="js/plugins/plugins.js" />
+        <h:outputScript name="js/active.js" />
+    </h:body>
+</html>
+

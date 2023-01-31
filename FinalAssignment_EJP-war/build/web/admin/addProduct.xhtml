@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <ui:composition template="/layouts/adminLayouts.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <div class="navbar navbar-inverse">
+                        <div class="navbar-brand">&nbsp;Add Product Form</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-xs-updated">
+                            <h:form id="addProductForm" styleClass="form-horizontal" prependId="false" enctype="multipart/form-data">                                
+                                <div class="form-group">
+                                    <h:outputLabel value="Product Name" styleClass="control-label col-sm-2" />
+                                    <div class="col-sm-10">
+                                        <h:inputText value="#{productMB.product.productName}" styleClass="form-control" required = "true" id="name" requiredMessage="This field cannot be empty!"/>
+                                        <h:message for = "name" style = "color: fuchsia;" /> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel value="Supplier Name" styleClass="control-label col-sm-2" />
+                                    <div class="col-sm-10">
+                                        <h:selectOneMenu value="#{productMB.supplierID}" styleClass="form-control">
+                                            <f:selectItems value="#{productMB.showAllSuppliers()}" var="itemS" itemLabel="#{itemS.supplierName}" itemValue="#{itemS.supID}" />
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel value="Category Name" styleClass="control-label col-sm-2" />
+                                    <div class="col-sm-10">
+                                        <h:selectOneMenu value="#{productMB.categoryID}" styleClass="form-control">
+                                            <f:selectItems value="#{productMB.showAllCategories()}" var="itemC" itemLabel="#{itemC.categoryName}" itemValue="#{itemC.categoryID}" />
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel value="Unit Price" styleClass="control-label col-sm-2" />
+                                    <div class="col-sm-10">
+                                        <h:inputText value="#{productMB.product.unitPrice}" styleClass="form-control" required = "true" id="price" requiredMessage="This field cannot be empty!"/>
+                                        <h:message for = "price" style = "color: fuchsia;" /> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel value="Image" styleClass="control-label col-sm-2" />
+                                    <div class="col-sm-10">
+                                        <label for="file"> <img src="#{resource['img/defaultimg.png']}" id="image" height="150" width="150" /> </label>
+                                        <h:inputFile id="file" styleClass="inputfile" value="#{productMB.file}" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel value="Quantity" styleClass="control-label col-sm-2" />
+                                    <div class="col-sm-10">
+                                        <h:inputText value="#{productMB.product.quantity}" styleClass="form-control" required = "true" id="quantity" requiredMessage="This field cannot be empty!"/>
+                                        <h:message for = "quantity" style = "color: fuchsia;" /> 
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <h:commandButton value="Submit" action="#{productMB.insertProducts()}" styleClass="btn btn-default" />&nbsp;                                      
+                                    </div>
+                                </div>                              
+                            </h:form>
+                        </div>
+                    </div>
+                </div>               
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

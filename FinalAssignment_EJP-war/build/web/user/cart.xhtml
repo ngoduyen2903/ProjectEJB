@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Shopping Cart</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/layouts/userLayouts.xhtml">
+            <ui:define name="content">
+                <c:if test="#{userMB.flag!=true}">
+
+                </c:if>
+                <div class="breadcrumb-area">
+                    <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(#{resource['img/bg-img/24.jpg']});">
+                        <h2>Cart</h2>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <h:form>
+                        <h:commandLink style="font-size: 30px;" action="#{cartProductMB.emptyCart()}"/>
+                    </h:form> 
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <c:if test="#{cartProductMB.countCart()==0}">
+                                            <div class="no-records"><h2>Your Cart is Empty</h2></div>
+                                        </c:if>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-area section-padding-0-100 clearfix">
+                    <div class="container">
+                        <c:if test="#{cartProductMB.countCart()>0}">
+                            <h5 style="color: #FF0000;">#{cartProductMB.message}</h5><br/>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="cart-table clearfix">
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr class="table-success" style="font-family: sans-serif;">
+                                                    <th style="width:25px;">Image</th>
+                                                    <th>Product Name</th>
+                                                    <th style="text-align:left;">Quantity</th>
+                                                    <th style="text-align:left;">Unit Price</th>
+                                                    <th>Total</th>
+                                                    <th style="width:15px;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <ui:repeat value="#{cartProductMB.showCartMB()}" var="itemCart" >
+                                                    <tr  class="table-success">
+                                                        <td class="cart_product_img" style="text-align:left;">
+                                                            <a href="#"><img src="#{resource[itemCart.image]}" alt="Product"/></a>                                                 
+                                                        </td>
+                                                        <td style="text-align:left;"><h:outputText value="#{itemCart.proName}" style="font-family: sans-serif;font-size: 15px"/></td>
+                                                        <td style="text-align:left;">
+                                                            <h:panelGroup>
+                                                                <h:form>
+                                                                    <h:commandButton value=" - "  action="#{cartProductMB.updateCart(itemCart.proID, false)}" />&nbsp;&nbsp;
+                                                                    <h:outputText value="#{itemCart.quantity}"/>&nbsp;&nbsp;
+                                                                    <h:commandButton value=" + "  action="#{cartProductMB.updateCart(itemCart.proID, true)}" />
+                                                                </h:form> 
+                                                            </h:panelGroup>
+                                                        </td>
+                                                        <td class="price" style="text-align:left;"><span><h:outputText value="$#{itemCart.unitPrice}" style="font-family: sans-serif;font-size: 15px"/></span></td>
+                                                        <td class="total_price" style="text-align:left;"><span><h:outputText value="$#{itemCart.totalPrice}" style="font-family: sans-serif;font-size: 15px"/></span></td>
+                                                        <td class="action" style="text-align:left;">
+                                                            <h:form>
+                                                                <h:commandButton action="#{cartProductMB.removeCart(itemCart.proID)}"  class="btn btn-danger" value="Delete"/>
+                                                            </h:form> 
+                                                        </td>
+                                                    </tr>
+                                                </ui:repeat>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:if>                       
+                        <div class="no-records">
+                            <p class="card-text">
+                                <h:link outcome="shop" value="Continue Shopping" class="btn btn-success btn alazea-btn"/>
+                            </p>
+                        </div>
+                        <div class="row">   
+                            <!-- Coupon Discount -->
+                            <div class="col-12 col-lg-6">
+                                <div class="coupon-discount mt-70">
+                                    <h5>COUPON DISCOUNT</h5>
+                                    <p>Coupons can be applied in the cart prior to checkout. Add an eligible item from the booth of the seller that created the coupon code to your cart. Click the green "Apply code" button to add the coupon to your order. The order total will update to indicate the savings specific to the coupon code entered.</p>
+                                    <form action="#" method="post">
+                                        <input type="text" name="coupon-code" placeholder="Enter your coupon code"/>
+                                        <button type="submit">APPLY COUPON</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="cart-totals-area mt-70">
+                                    <h5 class="title--">Cart Total</h5>
+                                    <div class="subtotal d-flex justify-content-between">
+                                        <h5>Total Quantity Product</h5>
+                                        <h5><h:outputText value="#{cartProductMB.totalProCart}"/></h5>
+                                    </div>
+                                    <div class="total d-flex justify-content-between">
+                                        <h5>Total Price</h5>
+                                        <h5><h:outputText value="$#{cartProductMB.totalMoneyCart}"/></h5>
+                                    </div>
+                                    <div class="checkout-btn">
+                                        <h:link outcome="/user/checkout.xhtml" class="btn alazea-btn w-100">Proceed To Checkout</h:link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

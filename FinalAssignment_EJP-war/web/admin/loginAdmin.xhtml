@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <h:outputStylesheet name="/admin/img/favicon.ico"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet"></link>
+        <h:outputStylesheet name="/admin/css/bootstrap.min.css"/>
+        <h:outputStylesheet name="/admin/css/font-awesome.min.css"/>
+        <h:outputStylesheet name="/admin/css/owl.carousel.css"/>
+        <h:outputStylesheet name="/admin/css/owl.theme.css"/>
+        <h:outputStylesheet name="/admin/css/owl.transitions.css"/>
+        <h:outputStylesheet name="/admin/css/animate.css"/>
+        <h:outputStylesheet name="/admin/css/normalize.css"/>
+        <h:outputStylesheet name="/admin/css/meanmenu.min.css"/>
+        <h:outputStylesheet name="/admin/css/main.css"/>
+        <h:outputStylesheet name="/admin/css/educate-custon-icon.css"/>
+        <h:outputStylesheet name="/admin/css/morrisjs/morris.css"/>
+        <h:outputStylesheet name="/admin/css/scrollbar/jquery.mCustomScrollbar.min.css"/>
+        <h:outputStylesheet name="/admin/css/metisMenu/metisMenu.min.css"/>
+        <h:outputStylesheet name="/admin/css/metisMenu/metisMenu-vertical.css"/>
+        <h:outputStylesheet name="/admin/css/calendar/fullcalendar.min.css"/>
+        <h:outputStylesheet name="/admin/css/calendar/fullcalendar.print.min.css"/>
+        <h:outputStylesheet name="/admin/css/editor/select2.css"/>
+        <h:outputStylesheet name="/admin/css/editor/datetimepicker.css"/>
+        <h:outputStylesheet name="/admin/css/editor/bootstrap-editable.css"/>
+        <h:outputStylesheet name="/admin/css/editor/x-editor-style.css"/>
+        <h:outputStylesheet name="/admin/css/data-table/bootstrap-table.css"/>
+        <h:outputStylesheet name="/admin/css/data-table/bootstrap-editable.css"/>
+
+        <h:outputStylesheet name="/admin/style.css"/>
+        <h:outputStylesheet name="/admin/css/responsive.css"/>
+        <h:outputScript name="/admin/js/vendor/modernizr-2.8.3.min.js"/>
+    </h:head>
+    <h:body>
+        <div class="error-pagewrap">
+            <div class="error-page-int">
+                <div class="text-center m-b-md custom-login">
+                    <h1>Login Form</h1>
+                    <br/><br/>
+                </div>
+                <div class="content-error">
+                    <div class="hpanel">
+                        <div class="panel-body">
+                            <h:form id="loginFormAdmin">
+                                <h4 style="color: red;"><i>#{adminMB.message}</i></h4>
+                                <div class="form-group">
+                                    <label class="control-label" for="username">Username</label>
+                                    <h:inputText value="#{adminMB.admin.username}" required = "true" id="username" requiredMessage="This field cannot be empty!"  class="form-control" />
+                                    <h:message for = "username" style = "color: fuchsia;" /> 
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="password">Password</label>
+                                    <h:inputSecret value="#{adminMB.admin.password}" required = "true" id="pass" requiredMessage="This field cannot be empty!" class="form-control"/>
+                                    <h:message for = "pass" style = "color: fuchsia;" /> 
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox"/>
+                                    <label>Remember me</label>                                                                      
+                                </div>                                                               
+                                <h:panelGroup>
+                                    <h:commandButton class="btn btn-success btn-block loginbtn" type="submit" value="Login" action="#{adminMB.checkLoginAdmin()}"/>                                      
+                                </h:panelGroup> 
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </div>                
+        <h:outputScript name="/admin/js/vendor/jquery-1.12.4.min.js"/>
+        <h:outputScript name="/admin/js/bootstrap.min.js"/>
+        <h:outputScript name="/admin/js/wow.min.js"/>
+        <h:outputScript name="/admin/js/jquery-price-slider.js"/>
+        <h:outputScript name="/admin/js/jquery.meanmenu.js"/>
+        <h:outputScript name="/admin/js/owl.carousel.min.js"/>
+        <h:outputScript name="/admin/js/jquery.sticky.js"/>
+        <h:outputScript name="/admin/js/jquery.scrollUp.min.js"/>
+        <h:outputScript name="/admin/js/counterup/jquery.counterup.min.js"/>
+        <h:outputScript name="/admin/js/counterup/waypoints.min.js"/>
+        <h:outputScript name="/admin/js/counterup/counterup-active.js"/>
+        <h:outputScript name="/admin/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"/>
+        <h:outputScript name="/admin/js/scrollbar/mCustomScrollbar-active.js"/>
+        <h:outputScript name="/admin/js/metisMenu/metisMenu.min.js"/>
+        <h:outputScript name="/admin/js/metisMenu/metisMenu-active.js"/>
+        <h:outputScript name="/admin/js/morrisjs/raphael-min.js"/>
+        <h:outputScript name="/admin/js/morrisjs/morris.js"/>
+        <h:outputScript name="/admin/js/morrisjs/morris-active.js"/>
+        <h:outputScript name="/admin/js/sparkline/jquery.sparkline.min.js"/>
+        <h:outputScript name="/admin/js/sparkline/jquery.charts-sparkline.js"/>
+        <h:outputScript name="/admin/js/sparkline/sparkline-active.js"/>
+        <h:outputScript name="/admin/js/calendar/moment.min.js"/>
+        <h:outputScript name="/admin/js/calendar/fullcalendar.min.js"/>
+        <h:outputScript name="/admin/js/calendar/fullcalendar-active.js"/>
+        <h:outputScript name="/admin/js/plugins.js"/>
+        <h:outputScript name="/admin/js/main.js"/>
+        <h:outputScript name="/admin/js/tab.js"/>
+
+        <h:outputScript name="/admin/js/data-table/bootstrap-table.js"/>
+        <h:outputScript name="/admin/js/data-table/tableExport.js"/>
+        <h:outputScript name="/admin/js/data-table/data-table-active.js"/>
+        <h:outputScript name="/admin/js/data-table/bootstrap-table-editable.js"/>
+        <h:outputScript name="/admin/js/data-table/bootstrap-editable.js"/>
+        <h:outputScript name="/admin/js/data-table/bootstrap-table-resizable.js"/>
+        <h:outputScript name="/admin/js/data-table/colResizable-1.5.source.js"/>
+        <h:outputScript name="/admin/js/data-table/bootstrap-table-export.js"/>  
+    </h:body>
+</html>
+

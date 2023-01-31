@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>My Order</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/layouts/userLayouts.xhtml">
+            <ui:define name="content">
+                <div class="breadcrumb-area">
+                    <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(#{resource['img/bg-img/24.jpg']});">
+                        <h2>My Order</h2>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">My Order</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">                  
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Order Date</th>
+                                    <th>Product Image</th>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity Ordered</th>
+                                    <th>Total Price</th>
+                                    <th>Orders Status</th>                                                        
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ui:repeat value="#{orderDetailsMB.showAllOrderDetails()}" var="itemOr">
+                                    <tr>
+                                        <td><h:outputText value="#{itemOr.orderID.orderID}"/></td>
+                                        <td><h:outputText value="#{itemOr.orderID.orderDate}"/></td>
+                                        <td><img src="#{resource[itemOr.proID.image]}" width="50px" height="50px"/></td>
+                                        <td><h:outputText value="#{itemOr.proID.productName}"/></td>
+                                        <td><h:outputText value="$#{itemOr.priceEach}"/></td>
+                                        <td><h:outputText value="#{itemOr.quantityOrdered}"/></td>
+                                        <td><h:outputText value="$#{itemOr.totalPrice}"/></td>
+                                        <td>
+                                            <b><h:outputText value="#{itemOr.orderID.testVar}"/></b>
+                                        </td>                                                           
+                                    </tr>  
+                                </ui:repeat>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

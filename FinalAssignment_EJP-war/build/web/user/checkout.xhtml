@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Checkout Page</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/layouts/userLayouts.xhtml">
+            <ui:define name="content">
+                <div class="breadcrumb-area">
+                    <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(#{resource['img/bg-img/24.jpg']});">
+                        <h2>Checkout</h2>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkout_area mb-100">
+                    <h:form id="billForm">
+                        <div class="container">
+                            <div class="row justify-content-between">
+                                <div class="col-12 col-lg-7">
+                                    <div class="checkout_details_area clearfix">
+                                        <h5>Billing Information</h5>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4">
+                                                <label for="fullnme">Full Name *</label>
+                                                <h:inputText value="#{loginMB.user.fullname}" class="form-control"/>
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+                                                <label for="email">Email *</label>
+                                                <h:inputText value="#{loginMB.user.email}" class="form-control"/>
+                                            </div>
+                                            <div class="col-12 mb-4">
+                                                <label for="phone">Phone Number *</label>
+                                                <h:inputText value="#{checkoutMB.order.phoneShip}" class="form-control" required = "true" id="phone" requiredMessage="This field cannot be empty!" />
+                                                <h:message for = "phone" style = "color: fuchsia;" /> 
+                                            </div>
+                                            <div class="col-12 mb-4">
+                                                <label for="address">Address: * (Example: 01 Ly Tu Trong, Ninh Kieu District, City. Can Tho)</label>
+                                                <h:inputText value="#{checkoutMB.order.addressShip}" class="form-control" required = "true" id="address" requiredMessage="This field cannot be empty!"/>
+                                                <h:message for = "address" style = "color: fuchsia;" /> 
+                                            </div>
+                                            <div class="col-12 mb-4">
+                                                <label for="note">Order Notes</label>
+                                                <h:inputTextarea value="#{checkoutMB.order.note}" class="form-control" required = "true" id="note" requiredMessage="This field cannot be empty!"/>
+                                                <h:message for = "note" style = "color: fuchsia;" /> 
+                                            </div>                                                                              
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4">                                  
+                                    <div class="checkout-content">
+                                        <h5 class="title--">Your Order</h5>
+                                        <div class="products">
+                                            <div class="products-data">
+                                                <h5>Products Name:</h5><br/>
+                                                <ui:repeat value="#{cartProductMB.showCartMB()}" var="itemCart" >
+                                                    <div class="single-products d-flex justify-content-between align-items-center">
+                                                        <a href="#"><img src="#{resource[itemCart.image]}" alt="Product" width="50px" height="50px"/></a>
+                                                        <h6>#{itemCart.proName}</h6>
+                                                        
+                                                        <h5>$#{itemCart.unitPrice}</h5>
+                                                    </div>
+                                                </ui:repeat>
+                                            </div>
+                                        </div>
+                                        <div class="subtotal d-flex justify-content-between align-items-center">
+                                            <h5>Subtotal</h5>
+                                            <h5>$#{cartProductMB.totalMoneyCart}</h5>
+                                        </div>
+                                        <div class="shipping d-flex justify-content-between align-items-center">
+                                            <h5>Shipping</h5>
+                                            <h5>$1.0</h5>
+                                        </div>
+                                        <div class="order-total d-flex justify-content-between align-items-center">
+                                            <h5>Order Total</h5>                                          
+                                            <h5>$#{cartProductMB.totalMoneyCart+cartProductMB.ship}</h5>                                        
+                                        </div>
+                                        <div class="checkout-btn mt-30">                                      
+                                            <h:commandButton type="submit" action="#{checkoutMB.insertBillInfor()}" class="btn alazea-btn w-100" value="Place Order"/>   <br/>                                    
+                                            <h5 style="color: #090;">#{checkoutMB.message}</h5>
+                                        </div>
+                                    </div>                                  
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

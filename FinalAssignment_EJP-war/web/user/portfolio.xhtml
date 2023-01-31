@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/layouts/userLayouts.xhtml">
+            <ui:define name="content">
+                <div class="breadcrumb-area">
+                    <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(#{resource['img/bg-img/24.jpg']});">
+                        <h2>PORTFOLIO</h2>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section class="alazea-portfolio-area portfolio-page section-padding-0-100">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="section-heading text-center">
+                                    <h2>OUR PORTFOLIO</h2>
+                                    <p>We devote all of our experience and efforts for creation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="alazea-portfolio-filter">
+                                    <div class="portfolio-filter">
+                                        <button class="btn active" data-filter="*">All</button>
+                                        <button class="btn" data-filter=".design">Coffee Design</button>
+                                        <button class="btn" data-filter=".garden">Garden</button>
+                                        <button class="btn" data-filter=".home-design">Home Design</button>
+                                        <button class="btn" data-filter=".office-design">Office Design</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row alazea-portfolio">
+                            <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item design home-design">
+                                <div class="portfolio-thumbnail bg-img" style="background-image: url(#{resource['img/core-img/homedesign1.jpg']});"></div>
+                                <div class="portfolio-hover-overlay">
+                                    <a href="#{resource['img/core-img/homedesign2.jpg']}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 1">
+                                        <div class="port-hover-text">
+                                            <h3>Minimal Flower Store</h3>
+                                            <h5>Office Plants</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-6 single_portfolio_item garden">
+                                <div class="portfolio-thumbnail bg-img" style="background-image: url(#{resource['img/core-img/garden1.jpg']});"></div>
+                                <div class="portfolio-hover-overlay">
+                                    <a href="#{resource['img/core-img/garden2.jpg']}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 2">
+                                        <div class="port-hover-text">
+                                            <h3>Minimal Flower Store</h3>
+                                            <h5>Office Plants</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden office-design">
+                                <div class="portfolio-thumbnail bg-img" style="background-image: url(#{resource['img/core-img/coffee1.jpg']});"></div>
+                                <div class="portfolio-hover-overlay">
+                                    <a href="#{resource['img/core-img/coffee2.jpg']}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 4">
+                                        <div class="port-hover-text">
+                                            <h3>Minimal Flower Store</h3>
+                                            <h5>Office Plants</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item design office-design">
+                                <div class="portfolio-thumbnail bg-img" style="background-image: url(#{resource['img/core-img/office1.jpg']});"></div>
+                                <div class="portfolio-hover-overlay">
+                                    <a href="#{resource['img/core-img/office2.jpg']}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 5">
+                                        <div class="port-hover-text">
+                                            <h3>Minimal Flower Store</h3>
+                                            <h5>Office Plants</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden">
+                                <div class="portfolio-thumbnail bg-img" style="background-image: url(#{resource['img/core-img/garden3.jpg']});"></div>
+                                <div class="portfolio-hover-overlay">
+                                    <a href="#{resource['img/core-img/garden4.jpg']}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 6">
+                                        <div class="port-hover-text">
+                                            <h3>Minimal Flower Store</h3>
+                                            <h5>Office Plants</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-6 single_portfolio_item home-design">
+                                <div class="portfolio-thumbnail bg-img" style="background-image: url(#{resource['img/core-img/homedesign3.jpg']});"></div>
+                                <div class="portfolio-hover-overlay">
+                                    <a href="#{resource['img/core-img/homedesign4.jpg']}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 7">
+                                        <div class="port-hover-text">
+                                            <h3>Minimal Flower Store</h3>
+                                            <h5>Office Plants</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-6 single_portfolio_item design home-design">
+                                <div class="portfolio-thumbnail bg-img" style="background-image: url(#{resource['img/core-img/homedesign5.jpg']});"></div>
+                                <div class="portfolio-hover-overlay">
+                                    <a href="#{resource['img/core-img/homedesign6.jpg']}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 1">
+                                        <div class="port-hover-text">
+                                            <h3>Minimal Flower Store</h3>
+                                            <h5>Office Plants</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden">
+                                <div class="portfolio-thumbnail bg-img" style="background-image: url(#{resource['img/core-img/garden5.jpg']});"></div>
+                                <div class="portfolio-hover-overlay">
+                                    <a href="#{resource['img/core-img/garden6.jpg']}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 2">
+                                        <div class="port-hover-text">
+                                            <h3>Minimal Flower Store</h3>
+                                            <h5>Office Plants</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden office-design">
+                                <div class="portfolio-thumbnail bg-img" style="background-image: url(#{resource['img/core-img/office3.jpg']});"></div>
+                                <div class="portfolio-hover-overlay">
+                                    <a href="#{resource['img/core-img/office4.jpg']}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 4">
+                                        <div class="port-hover-text">
+                                            <h3>Minimal Flower Store</h3>
+                                            <h5>Office Plants</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item design office-design">
+                                <div class="portfolio-thumbnail bg-img" style="background-image: url(#{resource['img/core-img/office5.jpg']}});"></div>
+                                <div class="portfolio-hover-overlay">
+                                    <a href="#{resource['img/core-img/office6.jpg']}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 5">
+                                        <div class="port-hover-text">
+                                            <h3>Minimal Flower Store</h3>
+                                            <h5>Office Plants</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item garden">
+                                <div class="portfolio-thumbnail bg-img" style="background-image: url(#{resource['img/core-img/garden7.jpg']});"></div>
+                                <div class="portfolio-hover-overlay">
+                                    <a href="#{resource['img/core-img/garden8.jpg']}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 6">
+                                        <div class="port-hover-text">
+                                            <h3>Minimal Flower Store</h3>
+                                            <h5>Office Plants</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-6 single_portfolio_item home-design">
+                                <div class="portfolio-thumbnail bg-img" style="background-image: url(#{resource['img/core-img/homedesign7.jpg']});"></div>
+                                <div class="portfolio-hover-overlay">
+                                    <a href="#{resource['img/core-img/homedesign8.jpg']}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 7">
+                                        <div class="port-hover-text">
+                                            <h3>Minimal Flower Store</h3>
+                                            <h5>Office Plants</h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

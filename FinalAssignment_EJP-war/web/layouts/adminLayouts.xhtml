@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+        <h:outputStylesheet name="/admin/img/favicon.ico"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet"></link>
+        <h:outputStylesheet name="/admin/css/bootstrap.min.css"/>
+        <h:outputStylesheet name="/admin/css/font-awesome.min.css"/>
+        <h:outputStylesheet name="/admin/css/owl.carousel.css"/>
+        <h:outputStylesheet name="/admin/css/owl.theme.css"/>
+        <h:outputStylesheet name="/admin/css/owl.transitions.css"/>
+        <h:outputStylesheet name="/admin/css/animate.css"/>
+        <h:outputStylesheet name="/admin/css/normalize.css"/>
+        <h:outputStylesheet name="/admin/css/meanmenu.min.css"/>
+        <h:outputStylesheet name="/admin/css/main.css"/>
+        <h:outputStylesheet name="/admin/css/educate-custon-icon.css"/>
+        <h:outputStylesheet name="/admin/css/morrisjs/morris.css"/>
+        <h:outputStylesheet name="/admin/css/scrollbar/jquery.mCustomScrollbar.min.css"/>
+        <h:outputStylesheet name="/admin/css/metisMenu/metisMenu.min.css"/>
+        <h:outputStylesheet name="/admin/css/metisMenu/metisMenu-vertical.css"/>
+        <h:outputStylesheet name="/admin/css/calendar/fullcalendar.min.css"/>
+        <h:outputStylesheet name="/admin/css/calendar/fullcalendar.print.min.css"/>
+        <h:outputStylesheet name="/admin/css/editor/select2.css"/>
+        <h:outputStylesheet name="/admin/css/editor/datetimepicker.css"/>
+        <h:outputStylesheet name="/admin/css/editor/bootstrap-editable.css"/>
+        <h:outputStylesheet name="/admin/css/editor/x-editor-style.css"/>
+        <h:outputStylesheet name="/admin/css/data-table/bootstrap-table.css"/>
+        <h:outputStylesheet name="/admin/css/data-table/bootstrap-editable.css"/>
+
+        <h:outputStylesheet name="/admin/style.css"/>
+        <h:outputStylesheet name="/admin/css/responsive.css"/>
+        <h:outputScript name="/admin/js/vendor/modernizr-2.8.3.min.js"/>
+    </h:head>
+    <h:body>
+        <f:metadata>
+            <f:event type="preRenderView" listener="#{adminMB.checkLoginSuccess()}"></f:event>
+        </f:metadata>
+        <div class="left-sidebar-pro">
+            <nav id="sidebar" class="">
+                <div class="sidebar-header">
+                    <h:link outcome="/admin/index.xhtml"><img class="main-logo" src="#{resource['/admin/img/logo/logo.png']}" alt="" /></h:link>
+                    <strong><a href="index.html"><img src="#{resource['/admin/img/logo/logosn.png']}" alt="" /></a></strong>
+                </div>
+                <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                    <nav class="sidebar-nav left-sidebar-menu-pro">
+                        <ul class="metismenu" id="menu1">
+                            <li>
+                                <h:link outcome="/admin/index.xhtml"><span
+                                        class="educate-icon educate-home icon-wrap"></span> <span
+                                        class="mini-click-non"></span>Dashboard</h:link>                          
+                            </li>
+                            <li>
+                                <h:link outcome="/admin/displayProduct.xhtml"><span
+                                        class="educate-icon educate-event icon-wrap sub-icon-mg"></span> <span
+                                        class="mini-click-non"></span>Product Management</h:link>                          
+                            </li>
+                            <li>
+                                <h:link outcome="/admin/displaySupplier.xhtml"><span
+                                        class="educate-icon educate-professor icon-wrap"></span> <span
+                                        class="mini-click-non"></span>Supplier Management</h:link>                          
+                            </li>
+                            <li>
+                                <h:link outcome="/admin/displayCategory.xhtml"><span
+                                        class="educate-icon educate-library icon-wrap"></span> <span
+                                        class="mini-click-non"></span>Category Management</h:link>                          
+                            </li>
+                            <li>
+                                <h:link outcome="/admin/displayOrder.xhtml"><span
+                                        class="educate-icon educate-library icon-wrap"></span> <span
+                                        class="mini-click-non"></span>Orders Management</h:link>                          
+                            </li>
+                            <li>
+                                <h:link outcome="/admin/displayUser.xhtml"><span
+                                        class="educate-icon educate-student icon-wrap"></span> <span
+                                        class="mini-click-non"></span>User Management</h:link>                          
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </nav>
+        </div>  
+        <div class="all-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="logo-pro">
+                            <a href="index.html"><img class="main-logo" src="#{resource['/admin/img/logo/logo.png']}" alt="" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-advance-area">
+                <div class="header-top-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="header-top-wraper">
+                                    <div class="row">
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                            <div class="header-top-menu tabl-d-n">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                            <div class="header-right-info">
+                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                    <li class="nav-item">
+                                                        <a href="#" data-toggle="dropdown" role="button"
+                                                           aria-expanded="false" class="nav-link dropdown-toggle">
+                                                            <img src="#{resource['/img/bg-img/user1.png']}" alt="" />
+                                                            <span class="admin-name">My Profile</span>
+                                                            <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
+                                                        </a>
+                                                        <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">                                                          
+                                                            <li>
+                                                                <h:form>
+                                                                    <h:commandLink action="#{adminMB.showUpdateAdmin(adminMB.admin.username)}"><span class="edu-icon edu-home-admin author-log-ic"></span>My Account</h:commandLink>                                                              
+                                                                </h:form>
+                                                            </li>
+                                                            <li>                                                               
+                                                                <h:form>
+                                                                    <h:commandLink action="#{adminMB.logout()}"><span class="edu-icon edu-home-admin author-log-ic"></span>Log Out</h:commandLink>                                                              
+                                                                </h:form>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div>
+                <ui:insert name="content" />
+            </div>
+            <div class="analytics-sparkle-area">
+                <div class="container-fluid">
+
+                </div>
+            </div>
+            <div class="footer-copyright-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="footer-copy-right">
+                                <p>Copyright © 2022 by <a
+                                        href="https://colorlib.com/wp/templates/">Ngo Thi Cam Duyen</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h:outputScript name="/admin/js/vendor/jquery-1.12.4.min.js"/>
+        <h:outputScript name="/admin/js/bootstrap.min.js"/>
+        <h:outputScript name="/admin/js/wow.min.js"/>
+        <h:outputScript name="/admin/js/jquery-price-slider.js"/>
+        <h:outputScript name="/admin/js/jquery.meanmenu.js"/>
+        <h:outputScript name="/admin/js/owl.carousel.min.js"/>
+        <h:outputScript name="/admin/js/jquery.sticky.js"/>
+        <h:outputScript name="/admin/js/jquery.scrollUp.min.js"/>
+        <h:outputScript name="/admin/js/counterup/jquery.counterup.min.js"/>
+        <h:outputScript name="/admin/js/counterup/waypoints.min.js"/>
+        <h:outputScript name="/admin/js/counterup/counterup-active.js"/>
+        <h:outputScript name="/admin/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"/>
+        <h:outputScript name="/admin/js/scrollbar/mCustomScrollbar-active.js"/>
+        <h:outputScript name="/admin/js/metisMenu/metisMenu.min.js"/>
+        <h:outputScript name="/admin/js/metisMenu/metisMenu-active.js"/>
+        <h:outputScript name="/admin/js/morrisjs/raphael-min.js"/>
+        <h:outputScript name="/admin/js/morrisjs/morris.js"/>
+        <h:outputScript name="/admin/js/morrisjs/morris-active.js"/>
+        <h:outputScript name="/admin/js/sparkline/jquery.sparkline.min.js"/>
+        <h:outputScript name="/admin/js/sparkline/jquery.charts-sparkline.js"/>
+        <h:outputScript name="/admin/js/sparkline/sparkline-active.js"/>
+        <h:outputScript name="/admin/js/calendar/moment.min.js"/>
+        <h:outputScript name="/admin/js/calendar/fullcalendar.min.js"/>
+        <h:outputScript name="/admin/js/calendar/fullcalendar-active.js"/>
+        <h:outputScript name="/admin/js/plugins.js"/>
+        <h:outputScript name="/admin/js/main.js"/>
+        <h:outputScript name="/admin/js/tab.js"/>
+        <h:outputScript name="/admin/js/getup.js"/>
+        <h:outputScript name="/admin/js/img.js"/>
+
+
+        <h:outputScript name="/admin/js/data-table/bootstrap-table.js"/>
+        <h:outputScript name="/admin/js/data-table/tableExport.js"/>
+        <h:outputScript name="/admin/js/data-table/data-table-active.js"/>
+        <h:outputScript name="/admin/js/data-table/bootstrap-table-editable.js"/>
+        <h:outputScript name="/admin/js/data-table/bootstrap-editable.js"/>
+        <h:outputScript name="/admin/js/data-table/bootstrap-table-resizable.js"/>
+        <h:outputScript name="/admin/js/data-table/colResizable-1.5.source.js"/>
+        <h:outputScript name="/admin/js/data-table/bootstrap-table-export.js"/>  
+
+    </h:body>
+</html>
+

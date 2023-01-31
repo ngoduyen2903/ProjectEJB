@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition template="/layouts/userLayouts.xhtml">
+            <ui:define name="content">
+                <div class="breadcrumb-area">
+                    <!-- Top Breadcrumb Area -->
+                    <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(#{resource['img/bg-img/24.jpg']});">
+                        <h2>ABOUT US</h2>
+                    </div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">About</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h:form>
+                        <h:inputHidden value="#{loginMB.user.id}" />
+                        <h:inputHidden value="#{loginMB.user.fullname}" />
+                        <h:inputHidden value="#{loginMB.user.username}" />
+                        <h:inputHidden value="#{loginMB.user.password}" />
+                        <h:inputHidden value="#{loginMB.user.email}" />
+                        <h:inputHidden value="#{loginMB.user.phone}" />
+                        <h:inputHidden value="#{loginMB.user.status}" />
+                        <div class="container mt-3">
+                            <h2>Change Password</h2>
+                            <div class="mb-3 mt-3">
+                                <label for="old">Old password: </label>
+                                <h:inputSecret value="#{loginMB.user.oldPass}" class="form-control"  />
+                            </div>
+                            <div class="mb-3">
+                                <label for="new">New Password:</label>
+                                <h:inputSecret value="#{loginMB.user.newPass}" class="form-control" />
+                            </div>
+                            <h:commandButton value="Submit" type="submit" action="#{loginMB.saveUpDatePassword()}" class="btn btn-danger"/><br/>
+                            <h5 style="color: #E73C7E;"><i>#{loginMB.message}</i></h5><br/>
+                        </div>  
+                    </h:form> 
+                </div>
+            </ui:define> 
+        </ui:composition>
+    </h:body>
+</html>
+
